@@ -7341,3 +7341,13 @@ Processing by ItemsController#index as HTML
   Rendered shared/_header.html.erb (0.8ms)
   Rendered shared/_footer.html.erb (0.0ms)
 Completed 200 OK in 105ms (Views: 81.9ms | ActiveRecord: 1.7ms)
+DEPRECATION WARNING: config.active_record.whitelist_attributes is deprecated and have no effect. Remove its call from the configuration. (called from block in tsort_each at /usr/share/ruby/tsort.rb:228)
+DEPRECATION WARNING: You didn't set `secret_key_base`. Read the upgrade documentation to learn more about this new config option. (called from service at /usr/share/ruby/webrick/httpserver.rb:140)
+
+
+Started GET "/" for 10.32.32.111 at 2017-05-08 17:56:59 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (3.7ms)
+  Rendered shared/_header.html.erb (1.8ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 548ms (Views: 547.4ms | ActiveRecord: 0.0ms)
