@@ -18,12 +18,12 @@ This will install all the gem dependencies for you, create a local database, run
 
 **Admin User**
 ```
-username: admin@example.com
+username: admin1@example.com
 password: changeme
 ```
 **Regular User**
 ```
-username: user@example.com
+username: user1@example.com
 password: changeme
 ```
 
@@ -35,5 +35,7 @@ If you want to run unit tests you can do so by running the following command:
 
 ### ToDo
 Fix Searching functionality
+
 Add Importing CSV option
+
 Improve documentation
