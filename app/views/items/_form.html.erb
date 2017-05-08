@@ -1,0 +1,81 @@
+
+<div class="form-horizontal">
+<%= form_for(@item) do |f| %>
+  <% if @item.errors.any? %>
+    <div id="error_explanation">
+      <h3><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h3>
+
+      <ul>
+      <% @item.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :device_name, class: "col-sm-3 control-label" %>
+    <div class="col-sm-5">
+	    <%= f.text_field :device_name, class: "form-control", :required=> true %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :description, class: "col-sm-3 control-label" %>
+    <div class="col-sm-5">
+      <%= f.text_area :description, class: "form-control", :rows =>10 %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :product_model_number, class: "col-sm-3 control-label" %>
+    <div class="col-sm-5">
+      <%= f.text_field :product_model_number, class: "form-control" %>
+    </div>
+  </div>
+
+ <div class="form-group">
+    <%= f.label :serial_number, class: "col-sm-3 control-label" %>
+    <div class="col-sm-5">
+	    <%= f.text_field :serial_number, class: "form-control" , :required => true%>
+    </div>
+ </div>
+
+ <div class="form-group">
+    <%= f.label :quantity, class: "col-sm-3 control-label" %>
+    <div class="col-sm-5">
+	    <%= f.text_field :quantity, class: "form-control" , :required => true, :value=> 1%>
+    </div>
+ </div>
+
+  <div class="form-group">
+    <%= f.label :property, class: "col-sm-3 control-label" %>
+    <div class="col-sm-5">
+       <%= f.select(:property, options_for_select([['Radisson','Radisson'],['Wings Event Center','Wings Event Center'],['Wings West','Wings West']]), {}, {class: "form-control"}) %>
+    </div>
+  </div>
+
+   <div class="form-group">
+    <%= f.label :department, class: "col-sm-3 control-label" %>
+    <div class="col-sm-5">
+	    <%= f.select(:department, options_for_select([['IN STOCK','IN STOCK'],['Technology Services','Technology Services'],['RPH Front Office','RPH Front Office'],['RPH Burdicks','RPH Burdicks'],['WW Burdicks','WW Burdicks'],['RPH Finance','RPH Finance'],['WEC Finance','WEC Finance'],['Human Resources','Human Resources'],['Sydney','Sydney'],['RIO','RIO'],['Sales and Catering','Sales and Catering'],['Executive Office','Executive Office'],['SLP','SLP'],['Banquets','Banquets'],['Housekeeping','Housekeeping'],['Zazios','Zazios'],['Business Development Team','Business Development Team'],['WW Ice Events','WW Ice Events'],['WEC','WEC'],['Blush','Blush'],['Burdicks for Breakfast','Burdicks for Breakfast'],['KAC','KAC'],['RPH Engineering','RPH Engineering'],['RPH Wedding Studio','RPH Wedding Studio'],['Websters','Websters'],['WEC Building Svcs','WEC Building Svcs']]), {}, {class: "form-control"}) %>
+    </div>
+  </div>
+
+
+  <div class="form-group">
+    <%= f.label :category, class: "col-sm-3 control-label" %>
+    <div class="col-sm-5">
+      <%= f.select(:category, options_for_select([['Tools','Tools'],['Components & Parts','Components & Parts'],['Laptop','Laptop'],['Desktop','Desktop']]), {}, {class: "form-control"}) %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-3 col-sm-5">
+      <%= f.submit "Create Item", class: "btn btn-success" %>
+      <%= link_to 'Cancel', items_path, :class => "btn btn-danger" %>
+    </div>
+  </div>
+
+<% end %>
+</div>
