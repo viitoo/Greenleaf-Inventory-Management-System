@@ -25,14 +25,13 @@
           </ul>
         </li>
       </ul>
-
       <ul class="nav navbar-nav navbar-right">
-	<%if user_signed_in? %>
-	      <%= form_tag(items_path, :method =>"get", id: "search-form") do %>
-		      <%= text_field_tag :search, params[:search], placeholder: "Search Items" %>
-		      <%= submit_tag "Search", :name => nil %>
-	      <%end%>
-	<%end%>
+	 <li style= "padding-top: 3%">
+                <%= form_tag(items_results_path, :method => "get", id: "search-form") do %>
+	                <%= text_field_tag :search, params[:search], placeholder: "Search Inventory" %>
+                	<%= submit_tag "Search" %>
+		<% end %>
+        </li>
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="items">Account <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
@@ -45,7 +44,7 @@
               <li><%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %></li>
               <% end %>
           </ul>
-        </li>
+	</li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

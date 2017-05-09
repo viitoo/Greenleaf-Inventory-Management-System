@@ -4,12 +4,15 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
-    @items = Item.all
-    if params[:search]
-	    @items = Item.search(params[:search]).order("device_name DESC")
-    else
-	    @items = Item.all.order("device_name DESC")
-    end
+	if params[:search]
+		redirect_to items_results_path
+	else
+		@search = Item.none
+	end
+  end
+
+  def results
+	  @search = Item.search(params[:search]).order("created_at DESC")
   end
 
   # GET /items/1

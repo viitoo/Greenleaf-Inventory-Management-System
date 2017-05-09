@@ -7,9 +7,6 @@
   </div>
 
   <div class="panel-body">
-	  <% if @item.blank?%>
-		  <h4>There are no items matching your search <%= params[:search] %>. </h4>
-	  <%end%>
 	  <%= link_to 'New Item', new_item_path, :class => "btn btn-success"%>
 	  <%= link_to 'Import CSV', new_item_path, :class => "btn btn-info"%>
 	  </br></br>
@@ -50,7 +47,6 @@
             <td></td>
             </tr>
         </tfoot>
-
       </table>
     </div>
 

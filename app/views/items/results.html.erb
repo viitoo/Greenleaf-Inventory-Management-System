@@ -1,0 +1,68 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">Search Results</h3>
+  </div>
+
+  <div class="panel-body">
+        <% if params[:search].present? %>
+                <% if @search.blank? %>
+                        <p>There are no items containing the term(s) <%= params[:search] %>.</p>
+                <% else %>
+          <%= link_to 'New Item', new_item_path, :class => "btn btn-success"%>
+          <%= link_to 'Import CSV', new_item_path, :class => "btn btn-info"%>
+          </br></br>
+    <div class="row">
+      <table class="table sortable">
+        <thead>
+        <th>Item Name</th>
+        <th><center>Model #</center></th>
+        <th><center>Serial #</center></th>
+        <th><center>Property</center></th>
+        <th><center>Department</center></th>
+        <th><center>Category</center></th>
+        <th class="sorttable_nosort"><center>Edit/Delete</center></th>
+        </thead>
+
+        <% @search.each do |search| %>
+        <tr>
+          <td><%= link_to search.device_name, search %></td>
+          <td><center><%= search.product_model_number %></center></td>
+          <td><center><%= search.serial_number %></center></td>
+          <td><center><%= search.property %></center></td>
+          <td><center><%= search.department %></center></td>
+          <td><center><%= search.category %></center></td>
+          <td><center><%= link_to '', edit_item_path(search), :class=>"fa fa-edit" %> |  <%= link_to content_tag(:i,nil, :class=>"fa fa-trash-o"), search, data: {confirm: 'Are you sure you want to delete this item?'}, method: :delete %></center>
+          </td>
+        </tr>
+        <% end -%>
+
+        <tfoot>
+          <tr>
+            <td><b>Total Items Matching Inventory</b></td>
+            <td></td>
+            <td><center><%= @search.map{|search| search.quantity}.reduce(0, :+,) %></center></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            </tr>
+        </tfoot>
+      </table>
+    </div>
+    <%end%>
+    <%end%>
+<center>
+      <div class="pagination">
+        <div class="page_info">
+                <%= page_entries_info @search %>
+        </div>
+        <%= will_paginate @search, renderer: BootstrapPagination::Rails %>
+      </div>
+    </center>
+
+  </div>
+</div>
+
+
+
