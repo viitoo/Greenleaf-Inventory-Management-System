@@ -10828,3 +10828,130 @@ Processing by ItemsController#index as HTML
   Rendered shared/_header.html.erb (1.1ms)
   Rendered shared/_footer.html.erb (0.1ms)
 Completed 200 OK in 116ms (Views: 112.7ms | ActiveRecord: 0.7ms)
+
+
+Started DELETE "/users/sign_out" for 10.32.32.111 at 2017-05-10 15:08:30 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"HExiVMWzpFvNu+p7wXC4XYrYQ+JsELkhWqZrwtWyVj6VekQchFJkBfGyaJEFY8GfoOp3Y0jnGSIcHZWe4dfgMA=="}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+Redirected to http://10.32.32.121/
+Completed 302 Found in 17ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 10.32.32.111 at 2017-05-10 15:08:30 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.9ms)
+  Rendered shared/_header.html.erb (1.3ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 127ms (Views: 126.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 10.32.32.111 at 2017-05-10 15:08:36 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/sessions/new.html.erb within layouts/application (3.8ms)
+  Rendered shared/_header.html.erb (0.8ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 124ms (Views: 121.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 10.32.32.111 at 2017-05-10 15:08:40 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FMT5mzw86xlJI26TOsMqPxFI/9hIQyzTknNqQUakFtyqBP0UjSy72BSKazcbgnDkQu08UTvayaLQnHObLyHBlQ==", "user"=>{"email"=>"user1@example.com", "password"=>"[FILTERED]"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "user1@example.com"]]
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = ?, "current_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2017-05-10 19:08:40.172888"], ["current_sign_in_ip", "10.32.32.111"], ["sign_in_count", 2], ["updated_at", "2017-05-10 19:08:40.174947"], ["id", 2]]
+  [1m[35m (20.6ms)[0m  commit transaction
+Redirected to http://10.32.32.121/
+Completed 302 Found in 178ms (ActiveRecord: 21.5ms)
+
+
+Started GET "/" for 10.32.32.111 at 2017-05-10 15:08:40 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  Rendered shared/_header.html.erb (3.1ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 102ms (Views: 101.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/items" for 10.32.32.111 at 2017-05-10 15:08:45 -0400
+Processing by ItemsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT  "items".* FROM "items" LIMIT 25 OFFSET 0[0m
+  [1m[35mItem Load (0.2ms)[0m  SELECT  "items".* FROM "items"  ORDER BY "items"."id" ASC LIMIT 1 OFFSET 0
+  Rendered items/index.html.erb within layouts/application (6.4ms)
+  Rendered shared/_header.html.erb (1.3ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 117ms (Views: 113.7ms | ActiveRecord: 0.7ms)
+
+
+Started DELETE "/items/3" for 10.32.32.111 at 2017-05-10 15:08:56 -0400
+Processing by ItemsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"2REtG+Bx049Iwo5YI7uJfUQE4Wc7ym9GnuMSXt9JGjAnpEZgxqfqVcxKdeakvSearpbop9WEsIsa0iXuse03Pw==", "id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mItem Load (0.1ms)[0m  SELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "items" WHERE "items"."id" = ?  [["id", 3]]
+  [1m[36m (18.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://10.32.32.121/items
+Completed 302 Found in 24ms (ActiveRecord: 18.6ms)
+
+
+Started GET "/items" for 10.32.32.111 at 2017-05-10 15:08:56 -0400
+Processing by ItemsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT  "items".* FROM "items" LIMIT 25 OFFSET 0[0m
+  [1m[35mItem Load (0.2ms)[0m  SELECT  "items".* FROM "items"  ORDER BY "items"."id" ASC LIMIT 1 OFFSET 0
+  Rendered items/index.html.erb within layouts/application (4.8ms)
+  Rendered shared/_header.html.erb (0.7ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 71ms (Views: 68.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 10.32.32.111 at 2017-05-10 15:08:58 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  Rendered shared/_header.html.erb (3.1ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 71ms (Views: 70.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 10.32.32.111 at 2017-05-10 15:15:28 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.7ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  Rendered shared/_header.html.erb (4.7ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 80ms (Views: 79.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 10.32.32.111 at 2017-05-10 15:17:58 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.8ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  Rendered shared/_header.html.erb (5.2ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 135ms (Views: 134.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 10.32.32.111 at 2017-05-10 15:19:57 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  Rendered shared/_header.html.erb (2.8ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 72ms (Views: 72.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/items" for 10.32.32.111 at 2017-05-10 15:19:59 -0400
+Processing by ItemsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mItem Load (0.4ms)[0m  SELECT  "items".* FROM "items" LIMIT 25 OFFSET 0
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT  "items".* FROM "items"  ORDER BY "items"."id" ASC LIMIT 1 OFFSET 0[0m
+  Rendered items/index.html.erb within layouts/application (8.4ms)
+  Rendered shared/_header.html.erb (0.8ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 89ms (Views: 84.8ms | ActiveRecord: 0.9ms)

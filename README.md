@@ -1,6 +1,6 @@
-### Greenleaf Inventory Management System (GIMS).
+### TS Inventory Management System (TIMS).
 
-GIMS is a ongoing project for the creation of a better inventory management solution for keeping track of workstations and general inventory at Greenleaf Hospitality Group. This is built upon the [RIMS framework ](https://github.com/DamageStudios/rims) which is an open source project
+TIMS is a ongoing project for the creation of a better inventory management solution for keeping track of workstations and general inventory at Greenleaf Hospitality Group. This is built upon the [RIMS framework ](https://github.com/DamageStudios/rims) which is an open source project
 
 
 ### Project Status
