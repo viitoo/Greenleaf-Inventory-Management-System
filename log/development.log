@@ -10955,3 +10955,21 @@ Processing by ItemsController#index as HTML
   Rendered shared/_header.html.erb (0.8ms)
   Rendered shared/_footer.html.erb (0.0ms)
 Completed 200 OK in 89ms (Views: 84.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 10.32.32.111 at 2017-05-10 15:47:29 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  Rendered shared/_header.html.erb (3.8ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 74ms (Views: 73.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 10.32.32.111 at 2017-05-10 15:49:07 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.8ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  Rendered shared/_header.html.erb (3.7ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 116ms (Views: 115.6ms | ActiveRecord: 0.2ms)
