@@ -1,4 +1,4 @@
-### TS Inventory Management\Business Solution (TIMBS).
+# TS Inventory Management\Business Solution (TIMBS).
 
 TIMBS is a ongoing project for the creation of a better inventory management solution for keeping track of workstations and general inventory at Greenleaf Hospitality Group. This is built upon the [RIMS framework ](https://github.com/DamageStudios/rims) which is an open source project
 
