@@ -1,6 +1,6 @@
-### TS Inventory Management System (TIMS).
+### TS Inventory Management\Business Solution (TIMBS).
 
-TIMS is a ongoing project for the creation of a better inventory management solution for keeping track of workstations and general inventory at Greenleaf Hospitality Group. This is built upon the [RIMS framework ](https://github.com/DamageStudios/rims) which is an open source project
+TIMBS is a ongoing project for the creation of a better inventory management solution for keeping track of workstations and general inventory at Greenleaf Hospitality Group. This is built upon the [RIMS framework ](https://github.com/DamageStudios/rims) which is an open source project
 
 
 ### Project Status
@@ -35,24 +35,24 @@ If you want to run unit tests you can do so by running the following command:
 
 ### ToDo
 
-*Add Importing CSV option
+* Add Importing CSV option
 
-*Allow for way to mass add similair models
+* Allow for way to mass add similair models
 
-*Improve documentation & formatting of all files
+* Improve documentation & formatting of all files
 
-*Add owner tag for inventory items(?)
+* Add owner tag for inventory items(?)
 
 ### Finished TODO
 
-*Fix Searching functionality
+* Fix Searching functionality
 
-*Block Duplicate SN & Device Names
+* Block Duplicate SN & Device Names
 
-*Remove Price & Picture options
+* Remove Price & Picture options
 
-*Default Quantity to 1 but still editable
+* Default Quantity to 1 but still editable
 
-*Add button for new inventory to All Inventory page
+* Add button for new inventory to All Inventory page
 
-*Add department and property dropdowns for new inventory
+* Add department and property dropdowns for new inventory
