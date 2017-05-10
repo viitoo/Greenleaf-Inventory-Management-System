@@ -10015,3 +10015,816 @@ ActionView::Template::Error (undefined method `total_pages' for #<ActiveRecord::
   Rendered /usr/local/share/gems/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.5ms)
   Rendered /usr/local/share/gems/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
   Rendered /usr/local/share/gems/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (29.8ms)
+DEPRECATION WARNING: config.active_record.whitelist_attributes is deprecated and have no effect. Remove its call from the configuration. (called from block in tsort_each at /usr/share/ruby/tsort.rb:228)
+DEPRECATION WARNING: You didn't set `secret_key_base`. Read the upgrade documentation to learn more about this new config option. (called from service at /usr/share/ruby/webrick/httpserver.rb:140)
+
+
+Started GET "/" for 10.32.32.111 at 2017-05-10 13:28:27 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (3.2ms)
+  Rendered shared/_header.html.erb (2.1ms)
+  Rendered shared/_footer.html.erb (0.3ms)
+Completed 200 OK in 400ms (Views: 399.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/items/results?utf8=%E2%9C%93&search=1W321J&commit=Search" for 10.32.32.111 at 2017-05-10 13:28:40 -0400
+Processing by ItemsController#results as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"1W321J", "commit"=>"Search"}
+Completed 401 Unauthorized in 10ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 10.32.32.111 at 2017-05-10 13:28:40 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/sessions/new.html.erb within layouts/application (26.1ms)
+  Rendered shared/_header.html.erb (1.4ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 172ms (Views: 136.2ms | ActiveRecord: 5.3ms)
+
+
+Started POST "/users/sign_in" for 10.32.32.111 at 2017-05-10 13:28:42 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wUdxaf4CUnMLFFUL+g8azRim+SvTgkya+kyQuEsRCacescsyQSK5PL6KKJgsARXu5Fz5mWIUQxYIwEP4lHaTsA==", "user"=>{"email"=>"admin1@example.com", "password"=>"[FILTERED]"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "admin1@example.com"]]
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (2.4ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["last_sign_in_at", "2017-05-09 14:04:09.810095"], ["current_sign_in_at", "2017-05-10 17:28:43.057440"], ["sign_in_count", 7], ["updated_at", "2017-05-10 17:28:43.059667"], ["id", 1]]
+  [1m[35m (18.4ms)[0m  commit transaction
+Redirected to http://10.32.32.121/items/results?utf8=%E2%9C%93&search=1W321J&commit=Search
+Completed 302 Found in 213ms (ActiveRecord: 21.3ms)
+
+
+Started GET "/items/results?utf8=%E2%9C%93&search=1W321J&commit=Search" for 10.32.32.111 at 2017-05-10 13:28:43 -0400
+Processing by ItemsController#results as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"1W321J", "commit"=>"Search"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mItem Load (0.3ms)[0m  SELECT "items".* FROM "items" WHERE (serial_number LIKE '%1W321J%' OR device_name LIKE '%1W321J%')  ORDER BY created_at DESC
+  Rendered items/results.html.erb within layouts/application (8.7ms)
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.6ms)
+
+ActionView::Template::Error (undefined method `total_pages' for #<ActiveRecord::Relation []>):
+    55: <center>
+    56:       <div class="pagination">
+    57:         <div class="page_info">
+    58:                 <%= page_entries_info @search %>
+    59:         </div>
+    60:         <%= will_paginate @search, renderer: BootstrapPagination::Rails %>
+    61:       </div>
+  app/views/items/results.html.erb:58:in `_app_views_items_results_html_erb__3545757914954389207_70239215478400'
+
+
+  Rendered /usr/local/share/gems/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.1ms)
+  Rendered /usr/local/share/gems/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.3ms)
+  Rendered /usr/local/share/gems/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /usr/local/share/gems/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (27.4ms)
+
+
+Started GET "/users/sign_in" for 10.32.32.111 at 2017-05-10 13:29:34 -0400
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+Redirected to http://10.32.32.121/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 6ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/users/sign_in" for 10.32.32.111 at 2017-05-10 13:29:39 -0400
+Processing by Devise::SessionsController#new as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Redirected to http://10.32.32.121/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 4ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 10.32.32.111 at 2017-05-10 13:29:39 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered shared/_header.html.erb (3.3ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 113ms (Views: 112.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 10.32.32.111 at 2017-05-10 13:29:51 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+  Rendered shared/_header.html.erb (1.3ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 67ms (Views: 67.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-8e6f1786aa1e5fa3f9e97fc3f77c6dc90bfc66929fcff084c5ce10e1422febd4.css?body=1" for 10.32.32.111 at 2017-05-10 13:29:51 -0400
+
+
+Started GET "/assets/twitter-bootstrap-static/fontawesome.self-2fe4f8a61d73606fbcb036b41f380591906a4da65a9eb5ec0a210fe6980b2ca7.css?body=1" for 10.32.32.111 at 2017-05-10 13:29:51 -0400
+
+
+Started GET "/assets/twitter-bootstrap-static/bootstrap.self-603f330c29af013305325569c8c75d03d688963abd8cde4fffec17b5ce417bfb.css?body=1" for 10.32.32.111 at 2017-05-10 13:29:51 -0400
+
+
+Started GET "/assets/bootstrap_and_overrides.self-08cc29a081df6c61eca113f344068be67f82c693587189daf0b0c9a7d1ad0cda.css?body=1" for 10.32.32.111 at 2017-05-10 13:29:51 -0400
+
+
+Started GET "/assets/jasny-bootstrap.self-40d7c2d19aaaa823730d7a25f55b205f76dbf676a49617cb790aa130f43725b9.css?body=1" for 10.32.32.111 at 2017-05-10 13:29:51 -0400
+
+
+Started GET "/assets/items.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 10.32.32.111 at 2017-05-10 13:29:51 -0400
+
+
+Started GET "/assets/welcome.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 10.32.32.111 at 2017-05-10 13:29:51 -0400
+
+
+Started GET "/assets/font-awesome.self-0235e3acee178ed76f87646421668eff5c89ed9bf980c2473f93301835c780af.css?body=1" for 10.32.32.111 at 2017-05-10 13:29:51 -0400
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 10.32.32.111 at 2017-05-10 13:29:51 -0400
+
+
+Started GET "/assets/twitter/bootstrap/alert.self-a29e91e8cd3ddaba9bbc466901d53ec2127e9256b9b941905d525a3a716bd1a5.js?body=1" for 10.32.32.111 at 2017-05-10 13:29:51 -0400
+
+
+Started GET "/assets/twitter/bootstrap/transition.self-09ff30b1e8a93d1f7728b9855f55d9c9d8d5734c8861e0d8139994e50944572a.js?body=1" for 10.32.32.111 at 2017-05-10 13:29:51 -0400
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 10.32.32.111 at 2017-05-10 13:29:51 -0400
+
+
+Started GET "/assets/twitter/bootstrap/modal.self-72f95ffa1071297725a9ac91989693d56d1abf23f441a47455073b0da2857a5b.js?body=1" for 10.32.32.111 at 2017-05-10 13:29:51 -0400
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.self-9314126777c6be5443e37ea7f7967d7914d72b3e60449ba50edc967446373059.js?body=1" for 10.32.32.111 at 2017-05-10 13:29:51 -0400
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.self-a155b9d4b2f978905f0326c0f6635e1134fe91c6bfbfcbad079fa24a9fef2b0e.js?body=1" for 10.32.32.111 at 2017-05-10 13:29:51 -0400
+
+
+Started GET "/assets/twitter/bootstrap/tab.self-122235057fbd4c6c7da377d59dc58f47b44cb1088a2e38e6ee6ce9d8ac29a26a.js?body=1" for 10.32.32.111 at 2017-05-10 13:29:51 -0400
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.self-11cf547be953f25f511cec668f6690473fd97b2f65502e4032f4030999a3f0c3.js?body=1" for 10.32.32.111 at 2017-05-10 13:29:51 -0400
+
+
+Started GET "/assets/twitter/bootstrap/popover.self-77d8e3a2499c1104ef146396a68b82469ee2bdb365199b874694698d10405e9a.js?body=1" for 10.32.32.111 at 2017-05-10 13:29:51 -0400
+
+
+Started GET "/assets/twitter/bootstrap/button.self-a6cb16785434acb365ae426aef9f1fce05ed553cae7a965e4471c3da71509175.js?body=1" for 10.32.32.111 at 2017-05-10 13:29:51 -0400
+
+
+Started GET "/assets/twitter/bootstrap/collapse.self-7dc8bfbc2fbfabd2bad62c58ff8ffeaf8f20fb87c7ca6cd35f06d4dc19632587.js?body=1" for 10.32.32.111 at 2017-05-10 13:29:51 -0400
+
+
+Started GET "/assets/twitter/bootstrap/carousel.self-57eb8422043cf0a85b7a9dc6843916eb0a3e35b419c7798a5eb254b918997631.js?body=1" for 10.32.32.111 at 2017-05-10 13:29:51 -0400
+
+
+Started GET "/assets/twitter/bootstrap/affix.self-d2b642d8fbfc1d7041e2edefd66683ada567a980789dcd6f94fddda0b33408b5.js?body=1" for 10.32.32.111 at 2017-05-10 13:29:51 -0400
+
+
+Started GET "/assets/twitter/bootstrap.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 10.32.32.111 at 2017-05-10 13:29:51 -0400
+
+
+Started GET "/assets/bootstrap.self-ff76904e4e6f362fe0bf1138e5a35caea2fb89500029971c584ce7810c01ea1d.js?body=1" for 10.32.32.111 at 2017-05-10 13:29:52 -0400
+
+
+Started GET "/assets/items.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 10.32.32.111 at 2017-05-10 13:29:52 -0400
+
+
+Started GET "/assets/jasny-bootstrap.self-dbc595c7c1beb59c42b14f9b556f3d3e67805dbbde5a3b6ea5d6bbf5e6edb764.js?body=1" for 10.32.32.111 at 2017-05-10 13:29:52 -0400
+
+
+Started GET "/assets/welcome.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 10.32.32.111 at 2017-05-10 13:29:52 -0400
+
+
+Started GET "/assets/application.self-ced9c993b337a2d64df081305ed42964f5b026250b4bcfdaa99da348f4e5b987.js?body=1" for 10.32.32.111 at 2017-05-10 13:29:52 -0400
+
+
+Started GET "/users/sign_in" for 10.32.32.111 at 2017-05-10 13:29:55 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/sessions/new.html.erb within layouts/application (1.7ms)
+  Rendered shared/_header.html.erb (1.0ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 69ms (Views: 68.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.32.32.111 at 2017-05-10 13:30:00 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+  Rendered shared/_header.html.erb (1.0ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 108ms (Views: 107.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.32.32.111 at 2017-05-10 13:31:34 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+  Rendered shared/_header.html.erb (2.1ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 76ms (Views: 75.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 10.32.32.111 at 2017-05-10 13:31:37 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/sessions/new.html.erb within layouts/application (3.0ms)
+  Rendered shared/_header.html.erb (1.1ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 126ms (Views: 123.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 10.32.32.111 at 2017-05-10 13:31:41 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"aU0YnrlSH9XZPRnn04lnEwdVbUaYN3oE8m9WBwSGFdeShKtaTmA4x5Ij0+cGbinD+q+Rm3J4BUz4VNSt5FCLfw==", "user"=>{"email"=>"admin1@example.com", "password"=>"[FILTERED]"}, "commit"=>"Sign In"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["email", "admin1@example.com"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["last_sign_in_at", "2017-05-10 17:28:43.057440"], ["current_sign_in_at", "2017-05-10 17:31:41.219651"], ["sign_in_count", 8], ["updated_at", "2017-05-10 17:31:41.221383"], ["id", 1]]
+  [1m[36m (11.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://10.32.32.121/
+Completed 302 Found in 110ms (ActiveRecord: 11.6ms)
+
+
+Started GET "/" for 10.32.32.111 at 2017-05-10 13:31:41 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.0ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered shared/_header.html.erb (2.3ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 72ms (Views: 71.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/items/results?utf8=%E2%9C%93&search=1W321J&commit=Search" for 10.32.32.111 at 2017-05-10 13:31:48 -0400
+Processing by ItemsController#results as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"1W321J", "commit"=>"Search"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mItem Load (0.4ms)[0m  SELECT "items".* FROM "items" WHERE (serial_number LIKE '%1W321J%' OR device_name LIKE '%1W321J%')  ORDER BY created_at DESC
+  Rendered items/results.html.erb within layouts/application (3.4ms)
+  Rendered shared/_header.html.erb (1.3ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 130ms (Views: 126.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/items" for 10.32.32.111 at 2017-05-10 13:31:53 -0400
+Processing by ItemsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mItem Load (0.2ms)[0m  SELECT  "items".* FROM "items" LIMIT 25 OFFSET 0
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT  "items".* FROM "items"  ORDER BY "items"."id" ASC LIMIT 1 OFFSET 0[0m
+  Rendered items/index.html.erb within layouts/application (21.0ms)
+  Rendered shared/_header.html.erb (1.1ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 136ms (Views: 131.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/fontawesome-webfont-7dacf83f51179de8d7980a513e67ab3a08f2c6272bb5946df8fd77c0d1763b73.woff2?v=4.6.3" for 10.32.32.111 at 2017-05-10 13:31:53 -0400
+
+
+Started GET "/items/results?utf8=%E2%9C%93&search=6&commit=Search" for 10.32.32.111 at 2017-05-10 13:31:59 -0400
+Processing by ItemsController#results as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"6", "commit"=>"Search"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mItem Load (0.4ms)[0m  [1mSELECT "items".* FROM "items" WHERE (serial_number LIKE '%6%' OR device_name LIKE '%6%')  ORDER BY created_at DESC[0m
+  Rendered items/results.html.erb within layouts/application (4.7ms)
+  Rendered shared/_header.html.erb (1.0ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 145ms (Views: 141.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/items/results?utf8=%E2%9C%93&search=TEST&commit=Search" for 10.32.32.111 at 2017-05-10 13:32:11 -0400
+Processing by ItemsController#results as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"TEST", "commit"=>"Search"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT "items".* FROM "items" WHERE (serial_number LIKE '%TEST%' OR device_name LIKE '%TEST%')  ORDER BY created_at DESC[0m
+  Rendered items/results.html.erb within layouts/application (2.2ms)
+  Rendered shared/_header.html.erb (0.8ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 82ms (Views: 79.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/items/new" for 10.32.32.111 at 2017-05-10 13:32:26 -0400
+Processing by ItemsController#new as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered items/_form.html.erb (16.5ms)
+  Rendered items/new.html.erb within layouts/application (18.4ms)
+  Rendered shared/_header.html.erb (0.8ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 88ms (Views: 85.4ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/items" for 10.32.32.111 at 2017-05-10 13:32:58 -0400
+Processing by ItemsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"P13ep3036UpV78uj5yKRCSTqNMS4AUv0kcIB7/52QVWfNjmdGQh4RkuCmu7pVeW9kuVKIGAAKeMagFV7U3eatA==", "item"=>{"device_name"=>"POOPER", "description"=>"", "product_model_number"=>"POOPER", "serial_number"=>"POOPER", "quantity"=>"1", "property"=>"Radisson", "department"=>"IN STOCK", "category"=>"Tools"}, "commit"=>"Create Item"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mItem Exists (0.3ms)[0m  SELECT  1 AS one FROM "items" WHERE "items"."serial_number" = ? LIMIT 1  [["serial_number", "POOPER"]]
+  [1m[36mItem Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "items" WHERE "items"."device_name" = ? LIMIT 1[0m  [["device_name", "POOPER"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "items" ("device_name", "description", "product_model_number", "serial_number", "quantity", "property", "department", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["device_name", "POOPER"], ["description", ""], ["product_model_number", "POOPER"], ["serial_number", "POOPER"], ["quantity", 1], ["property", "Radisson"], ["department", "IN STOCK"], ["category", "Tools"], ["created_at", "2017-05-10 17:32:58.240791"], ["updated_at", "2017-05-10 17:32:58.240791"]]
+  [1m[35m (17.7ms)[0m  commit transaction
+Redirected to http://10.32.32.121/items/4
+Completed 302 Found in 48ms (ActiveRecord: 18.9ms)
+
+
+Started GET "/items/4" for 10.32.32.111 at 2017-05-10 13:32:58 -0400
+Processing by ItemsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mItem Load (0.3ms)[0m  SELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1  [["id", 4]]
+  Rendered items/show.html.erb within layouts/application (2.4ms)
+  Rendered shared/_header.html.erb (1.1ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 116ms (Views: 108.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/items" for 10.32.32.111 at 2017-05-10 13:33:00 -0400
+Processing by ItemsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mItem Load (0.3ms)[0m  SELECT  "items".* FROM "items" LIMIT 25 OFFSET 0
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT  "items".* FROM "items"  ORDER BY "items"."id" ASC LIMIT 1 OFFSET 0[0m
+  Rendered items/index.html.erb within layouts/application (7.2ms)
+  Rendered shared/_header.html.erb (1.0ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 111ms (Views: 107.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/items/results?utf8=%E2%9C%93&search=Pooper&commit=Search" for 10.32.32.111 at 2017-05-10 13:33:06 -0400
+Processing by ItemsController#results as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"Pooper", "commit"=>"Search"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT "items".* FROM "items" WHERE (serial_number LIKE '%Pooper%' OR device_name LIKE '%Pooper%')  ORDER BY created_at DESC[0m
+  Rendered items/results.html.erb within layouts/application (2.7ms)
+  Rendered shared/_header.html.erb (1.1ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 110ms (Views: 106.1ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/items/4" for 10.32.32.111 at 2017-05-10 13:33:11 -0400
+Processing by ItemsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"tL/882fFrVTJBG/0QDAYUViJ5mwjEu7KUTL8JJnHNaIU1BvJA/o8WNdpPrlOR2zl7oaYiPsTjN3acKiwNMbuQw==", "id"=>"4"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "items" WHERE "items"."id" = ?[0m  [["id", 4]]
+  [1m[35m (4.5ms)[0m  commit transaction
+Redirected to http://10.32.32.121/items
+Completed 302 Found in 10ms (ActiveRecord: 5.1ms)
+
+
+Started GET "/items" for 10.32.32.111 at 2017-05-10 13:33:11 -0400
+Processing by ItemsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mItem Load (0.2ms)[0m  SELECT  "items".* FROM "items" LIMIT 25 OFFSET 0
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT  "items".* FROM "items"  ORDER BY "items"."id" ASC LIMIT 1 OFFSET 0[0m
+  Rendered items/index.html.erb within layouts/application (4.1ms)
+  Rendered shared/_header.html.erb (0.8ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 85ms (Views: 81.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 10.32.32.111 at 2017-05-10 13:33:39 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered shared/_header.html.erb (2.4ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 72ms (Views: 72.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 10.32.32.115 at 2017-05-10 13:34:24 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+  Rendered shared/_header.html.erb (0.9ms)
+  Rendered shared/_footer.html.erb (0.2ms)
+Completed 200 OK in 68ms (Views: 67.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-8e6f1786aa1e5fa3f9e97fc3f77c6dc90bfc66929fcff084c5ce10e1422febd4.css?body=1" for 10.32.32.115 at 2017-05-10 13:34:25 -0400
+
+
+Started GET "/assets/twitter-bootstrap-static/fontawesome.self-2fe4f8a61d73606fbcb036b41f380591906a4da65a9eb5ec0a210fe6980b2ca7.css?body=1" for 10.32.32.115 at 2017-05-10 13:34:25 -0400
+
+
+Started GET "/assets/twitter-bootstrap-static/bootstrap.self-603f330c29af013305325569c8c75d03d688963abd8cde4fffec17b5ce417bfb.css?body=1" for 10.32.32.115 at 2017-05-10 13:34:25 -0400
+
+
+Started GET "/assets/items.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 10.32.32.115 at 2017-05-10 13:34:25 -0400
+
+
+Started GET "/assets/bootstrap_and_overrides.self-08cc29a081df6c61eca113f344068be67f82c693587189daf0b0c9a7d1ad0cda.css?body=1" for 10.32.32.115 at 2017-05-10 13:34:25 -0400
+
+
+Started GET "/assets/jasny-bootstrap.self-40d7c2d19aaaa823730d7a25f55b205f76dbf676a49617cb790aa130f43725b9.css?body=1" for 10.32.32.115 at 2017-05-10 13:34:25 -0400
+
+
+Started GET "/assets/welcome.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 10.32.32.115 at 2017-05-10 13:34:25 -0400
+
+
+Started GET "/assets/font-awesome.self-0235e3acee178ed76f87646421668eff5c89ed9bf980c2473f93301835c780af.css?body=1" for 10.32.32.115 at 2017-05-10 13:34:25 -0400
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 10.32.32.115 at 2017-05-10 13:34:25 -0400
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 10.32.32.115 at 2017-05-10 13:34:25 -0400
+
+
+Started GET "/assets/twitter/bootstrap/transition.self-09ff30b1e8a93d1f7728b9855f55d9c9d8d5734c8861e0d8139994e50944572a.js?body=1" for 10.32.32.115 at 2017-05-10 13:34:25 -0400
+
+
+Started GET "/assets/twitter/bootstrap/modal.self-72f95ffa1071297725a9ac91989693d56d1abf23f441a47455073b0da2857a5b.js?body=1" for 10.32.32.115 at 2017-05-10 13:34:25 -0400
+
+
+Started GET "/assets/twitter/bootstrap/alert.self-a29e91e8cd3ddaba9bbc466901d53ec2127e9256b9b941905d525a3a716bd1a5.js?body=1" for 10.32.32.115 at 2017-05-10 13:34:25 -0400
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.self-a155b9d4b2f978905f0326c0f6635e1134fe91c6bfbfcbad079fa24a9fef2b0e.js?body=1" for 10.32.32.115 at 2017-05-10 13:34:25 -0400
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.self-9314126777c6be5443e37ea7f7967d7914d72b3e60449ba50edc967446373059.js?body=1" for 10.32.32.115 at 2017-05-10 13:34:25 -0400
+
+
+Started GET "/assets/twitter/bootstrap/tab.self-122235057fbd4c6c7da377d59dc58f47b44cb1088a2e38e6ee6ce9d8ac29a26a.js?body=1" for 10.32.32.115 at 2017-05-10 13:34:25 -0400
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.self-11cf547be953f25f511cec668f6690473fd97b2f65502e4032f4030999a3f0c3.js?body=1" for 10.32.32.115 at 2017-05-10 13:34:25 -0400
+
+
+Started GET "/assets/twitter/bootstrap/popover.self-77d8e3a2499c1104ef146396a68b82469ee2bdb365199b874694698d10405e9a.js?body=1" for 10.32.32.115 at 2017-05-10 13:34:25 -0400
+
+
+Started GET "/assets/twitter/bootstrap/button.self-a6cb16785434acb365ae426aef9f1fce05ed553cae7a965e4471c3da71509175.js?body=1" for 10.32.32.115 at 2017-05-10 13:34:25 -0400
+
+
+Started GET "/assets/twitter/bootstrap/collapse.self-7dc8bfbc2fbfabd2bad62c58ff8ffeaf8f20fb87c7ca6cd35f06d4dc19632587.js?body=1" for 10.32.32.115 at 2017-05-10 13:34:25 -0400
+
+
+Started GET "/assets/twitter/bootstrap/carousel.self-57eb8422043cf0a85b7a9dc6843916eb0a3e35b419c7798a5eb254b918997631.js?body=1" for 10.32.32.115 at 2017-05-10 13:34:25 -0400
+
+
+Started GET "/assets/twitter/bootstrap.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 10.32.32.115 at 2017-05-10 13:34:25 -0400
+
+
+Started GET "/assets/twitter/bootstrap/affix.self-d2b642d8fbfc1d7041e2edefd66683ada567a980789dcd6f94fddda0b33408b5.js?body=1" for 10.32.32.115 at 2017-05-10 13:34:25 -0400
+
+
+Started GET "/assets/bootstrap.self-ff76904e4e6f362fe0bf1138e5a35caea2fb89500029971c584ce7810c01ea1d.js?body=1" for 10.32.32.115 at 2017-05-10 13:34:25 -0400
+
+
+Started GET "/assets/jasny-bootstrap.self-dbc595c7c1beb59c42b14f9b556f3d3e67805dbbde5a3b6ea5d6bbf5e6edb764.js?body=1" for 10.32.32.115 at 2017-05-10 13:34:25 -0400
+
+
+Started GET "/assets/items.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 10.32.32.115 at 2017-05-10 13:34:25 -0400
+
+
+Started GET "/assets/welcome.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 10.32.32.115 at 2017-05-10 13:34:25 -0400
+
+
+Started GET "/assets/application.self-ced9c993b337a2d64df081305ed42964f5b026250b4bcfdaa99da348f4e5b987.js?body=1" for 10.32.32.115 at 2017-05-10 13:34:25 -0400
+
+
+Started GET "/users/sign_in" for 10.32.32.115 at 2017-05-10 13:34:33 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/sessions/new.html.erb within layouts/application (2.1ms)
+  Rendered shared/_header.html.erb (0.8ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 69ms (Views: 67.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 10.32.32.115 at 2017-05-10 13:34:52 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YjHmAdz8iQ8YjOqfBmgrfkkI0SU8Apyz7Pb1+N0LXpuZuXCgzdxgLmw8Bzpa5SyF1hTSbBUopGV0s7h8zVzUdw==", "user"=>{"email"=>"admin1@example.com", "password"=>"[FILTERED]"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "admin1@example.com"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "current_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["last_sign_in_at", "2017-05-10 17:31:41.219651"], ["current_sign_in_at", "2017-05-10 17:34:52.479171"], ["current_sign_in_ip", "10.32.32.115"], ["sign_in_count", 9], ["updated_at", "2017-05-10 17:34:52.480588"], ["id", 1]]
+  [1m[35m (30.9ms)[0m  commit transaction
+Redirected to http://10.32.32.121/
+Completed 302 Found in 175ms (ActiveRecord: 31.6ms)
+
+
+Started GET "/" for 10.32.32.115 at 2017-05-10 13:34:52 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered shared/_header.html.erb (2.9ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 70ms (Views: 69.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/items/results?utf8=%E2%9C%93&search=dick&commit=Search" for 10.32.32.115 at 2017-05-10 13:34:59 -0400
+Processing by ItemsController#results as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"dick", "commit"=>"Search"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT "items".* FROM "items" WHERE (serial_number LIKE '%dick%' OR device_name LIKE '%dick%')  ORDER BY created_at DESC[0m
+  Rendered items/results.html.erb within layouts/application (0.8ms)
+  Rendered shared/_header.html.erb (0.8ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 79ms (Views: 77.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/items/results?utf8=%E2%9C%93&search=cunts&commit=Search" for 10.32.32.115 at 2017-05-10 13:35:04 -0400
+Processing by ItemsController#results as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"cunts", "commit"=>"Search"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT "items".* FROM "items" WHERE (serial_number LIKE '%cunts%' OR device_name LIKE '%cunts%')  ORDER BY created_at DESC[0m
+  Rendered items/results.html.erb within layouts/application (0.9ms)
+  Rendered shared/_header.html.erb (1.8ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 88ms (Views: 85.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/items/results?utf8=%E2%9C%93&search=poop&commit=Search" for 10.32.32.115 at 2017-05-10 13:35:11 -0400
+Processing by ItemsController#results as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"poop", "commit"=>"Search"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT "items".* FROM "items" WHERE (serial_number LIKE '%poop%' OR device_name LIKE '%poop%')  ORDER BY created_at DESC[0m
+  Rendered items/results.html.erb within layouts/application (1.4ms)
+  Rendered shared/_header.html.erb (0.8ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 102ms (Views: 97.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/items/results?utf8=%E2%9C%93&search=poop&commit=Search" for 10.32.32.115 at 2017-05-10 13:35:12 -0400
+Processing by ItemsController#results as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"poop", "commit"=>"Search"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT "items".* FROM "items" WHERE (serial_number LIKE '%poop%' OR device_name LIKE '%poop%')  ORDER BY created_at DESC[0m
+  Rendered items/results.html.erb within layouts/application (0.8ms)
+  Rendered shared/_header.html.erb (0.8ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 76ms (Views: 73.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/items" for 10.32.32.115 at 2017-05-10 13:36:09 -0400
+Processing by ItemsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mItem Load (0.4ms)[0m  [1mSELECT  "items".* FROM "items" LIMIT 25 OFFSET 0[0m
+  [1m[35mItem Load (0.3ms)[0m  SELECT  "items".* FROM "items"  ORDER BY "items"."id" ASC LIMIT 1 OFFSET 0
+  Rendered items/index.html.erb within layouts/application (8.1ms)
+  Rendered shared/_header.html.erb (1.2ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 127ms (Views: 122.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/fontawesome-webfont-7dacf83f51179de8d7980a513e67ab3a08f2c6272bb5946df8fd77c0d1763b73.woff2?v=4.6.3" for 10.32.32.115 at 2017-05-10 13:36:09 -0400
+
+
+Started GET "/items/results?utf8=%E2%9C%93&search=test&commit=Search" for 10.32.32.115 at 2017-05-10 13:36:16 -0400
+Processing by ItemsController#results as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"test", "commit"=>"Search"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mItem Load (0.3ms)[0m  SELECT "items".* FROM "items" WHERE (serial_number LIKE '%test%' OR device_name LIKE '%test%')  ORDER BY created_at DESC
+  Rendered items/results.html.erb within layouts/application (2.8ms)
+  Rendered shared/_header.html.erb (1.2ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 121ms (Views: 116.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/items/new" for 10.32.32.115 at 2017-05-10 13:36:23 -0400
+Processing by ItemsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered items/_form.html.erb (5.9ms)
+  Rendered items/new.html.erb within layouts/application (6.8ms)
+  Rendered shared/_header.html.erb (0.7ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 79ms (Views: 76.9ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/items" for 10.32.32.115 at 2017-05-10 13:37:21 -0400
+Processing by ItemsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"D7tJvVlkdU9VpE6Y/5m2joKbNoF5t0lp7j59lZcz7KX1sjq6eX6AFRiRjTWmkHltrH4rouIWONYvBkDzRLdelw==", "item"=>{"device_name"=>"poop", "description"=>"poopy poop", "product_model_number"=>"80085", "serial_number"=>"800813", "quantity"=>"69", "property"=>"Radisson", "department"=>"IN STOCK", "category"=>"Components & Parts"}, "commit"=>"Create Item"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mItem Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "items" WHERE "items"."serial_number" = ? LIMIT 1[0m  [["serial_number", "800813"]]
+  [1m[35mItem Exists (0.1ms)[0m  SELECT  1 AS one FROM "items" WHERE "items"."device_name" = ? LIMIT 1  [["device_name", "poop"]]
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "items" ("device_name", "description", "product_model_number", "serial_number", "quantity", "property", "department", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["device_name", "poop"], ["description", "poopy poop"], ["product_model_number", "80085"], ["serial_number", "800813"], ["quantity", 69], ["property", "Radisson"], ["department", "IN STOCK"], ["category", "Components & Parts"], ["created_at", "2017-05-10 17:37:21.124115"], ["updated_at", "2017-05-10 17:37:21.124115"]]
+  [1m[36m (12.4ms)[0m  [1mcommit transaction[0m
+Redirected to http://10.32.32.121/items/5
+Completed 302 Found in 28ms (ActiveRecord: 13.6ms)
+
+
+Started GET "/items/5" for 10.32.32.115 at 2017-05-10 13:37:21 -0400
+Processing by ItemsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1[0m  [["id", 5]]
+  Rendered items/show.html.erb within layouts/application (1.9ms)
+  Rendered shared/_header.html.erb (1.0ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 103ms (Views: 98.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/items" for 10.32.32.115 at 2017-05-10 13:37:27 -0400
+Processing by ItemsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT  "items".* FROM "items" LIMIT 25 OFFSET 0[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT  "items".* FROM "items"  ORDER BY "items"."id" ASC LIMIT 1 OFFSET 0
+  Rendered items/index.html.erb within layouts/application (4.4ms)
+  Rendered shared/_header.html.erb (1.4ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 77ms (Views: 65.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/items/new" for 10.32.32.115 at 2017-05-10 13:37:51 -0400
+Processing by ItemsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered items/_form.html.erb (5.4ms)
+  Rendered items/new.html.erb within layouts/application (6.2ms)
+  Rendered shared/_header.html.erb (0.8ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 77ms (Views: 74.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 10.32.32.115 at 2017-05-10 13:37:56 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.0ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered shared/_header.html.erb (3.1ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 69ms (Views: 68.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/items" for 10.32.32.111 at 2017-05-10 13:47:25 -0400
+Processing by ItemsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mItem Load (0.2ms)[0m  SELECT  "items".* FROM "items" LIMIT 25 OFFSET 0
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT  "items".* FROM "items"  ORDER BY "items"."id" ASC LIMIT 1 OFFSET 0[0m
+  Rendered items/index.html.erb within layouts/application (5.5ms)
+  Rendered shared/_header.html.erb (1.0ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 82ms (Views: 78.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/items" for 10.32.32.111 at 2017-05-10 14:16:23 -0400
+Processing by ItemsController#index as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered items/index.html.erb within layouts/application (3.8ms)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.5ms)
+
+SyntaxError (/git/Greenleaf-Inventory-Management-System/app/views/items/index.html.erb:11: syntax error, unexpected tIDENTIFIER, expecting ')'
+...lass => "btn btn-info" disabled);@output_buffer.safe_append='
+...                               ^):
+  app/views/items/index.html.erb:11: syntax error, unexpected tIDENTIFIER, expecting ')'
+
+
+  Rendered /usr/local/share/gems/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.9ms)
+  Rendered /usr/local/share/gems/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.4ms)
+  Rendered /usr/local/share/gems/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /usr/local/share/gems/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (32.5ms)
+
+
+Started GET "/items" for 10.32.32.111 at 2017-05-10 14:18:13 -0400
+Processing by ItemsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mItem Load (0.3ms)[0m  SELECT  "items".* FROM "items" LIMIT 25 OFFSET 0
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT  "items".* FROM "items"  ORDER BY "items"."id" ASC LIMIT 1 OFFSET 0[0m
+  Rendered items/index.html.erb within layouts/application (9.2ms)
+  Rendered shared/_header.html.erb (2.9ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 122ms (Views: 117.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/items/results?utf8=%E2%9C%93&search=poop&commit=Search" for 10.32.32.111 at 2017-05-10 14:19:38 -0400
+Processing by ItemsController#results as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"poop", "commit"=>"Search"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT "items".* FROM "items" WHERE (serial_number LIKE '%poop%' OR device_name LIKE '%poop%')  ORDER BY created_at DESC[0m
+  Rendered items/results.html.erb within layouts/application (4.2ms)
+  Rendered shared/_header.html.erb (1.2ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 117ms (Views: 112.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/items/results?utf8=%E2%9C%93&search=Toot&commit=Search" for 10.32.32.111 at 2017-05-10 14:20:08 -0400
+Processing by ItemsController#results as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"Toot", "commit"=>"Search"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT "items".* FROM "items" WHERE (serial_number LIKE '%Toot%' OR device_name LIKE '%Toot%')  ORDER BY created_at DESC[0m
+  Rendered items/results.html.erb within layouts/application (1.2ms)
+  Rendered shared/_header.html.erb (1.0ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 80ms (Views: 77.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/items/results?utf8=%E2%9C%93&search=Toot&commit=Search" for 10.32.32.111 at 2017-05-10 14:31:52 -0400
+Processing by ItemsController#results as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"Toot", "commit"=>"Search"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT "items".* FROM "items" WHERE (serial_number LIKE '%Toot%' OR device_name LIKE '%Toot%')  ORDER BY created_at DESC[0m
+  Rendered items/results.html.erb within layouts/application (2.7ms)
+  Rendered shared/_header.html.erb (1.1ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 85ms (Views: 81.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/items" for 10.32.32.111 at 2017-05-10 14:31:59 -0400
+Processing by ItemsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT  "items".* FROM "items" LIMIT 25 OFFSET 0[0m
+  [1m[35mItem Load (0.2ms)[0m  SELECT  "items".* FROM "items"  ORDER BY "items"."id" ASC LIMIT 1 OFFSET 0
+  Rendered items/index.html.erb within layouts/application (5.0ms)
+  Rendered shared/_header.html.erb (0.7ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 72ms (Views: 69.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/items/results?utf8=%E2%9C%93&search=asdf&commit=Search" for 10.32.32.111 at 2017-05-10 14:32:05 -0400
+Processing by ItemsController#results as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"asdf", "commit"=>"Search"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mItem Load (0.3ms)[0m  SELECT "items".* FROM "items" WHERE (serial_number LIKE '%asdf%' OR device_name LIKE '%asdf%')  ORDER BY created_at DESC
+  Rendered items/results.html.erb within layouts/application (1.6ms)
+  Rendered shared/_header.html.erb (1.0ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 115ms (Views: 111.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/items/results?utf8=%E2%9C%93&search=asdf&commit=Search" for 10.32.32.111 at 2017-05-10 14:32:51 -0400
+Processing by ItemsController#results as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"asdf", "commit"=>"Search"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mItem Load (0.3ms)[0m  SELECT "items".* FROM "items" WHERE (serial_number LIKE '%asdf%' OR device_name LIKE '%asdf%')  ORDER BY created_at DESC
+  Rendered items/results.html.erb within layouts/application (3.3ms)
+  Rendered shared/_header.html.erb (1.3ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 114ms (Views: 110.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/items" for 10.32.32.111 at 2017-05-10 14:32:54 -0400
+Processing by ItemsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mItem Load (0.3ms)[0m  SELECT  "items".* FROM "items" LIMIT 25 OFFSET 0
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT  "items".* FROM "items"  ORDER BY "items"."id" ASC LIMIT 1 OFFSET 0[0m
+  Rendered items/index.html.erb within layouts/application (8.3ms)
+  Rendered shared/_header.html.erb (1.6ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 152ms (Views: 146.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 10.32.32.111 at 2017-05-10 14:48:07 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.2ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered shared/_header.html.erb (4.6ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 136ms (Views: 135.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 10.32.32.111 at 2017-05-10 14:58:06 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered shared/_header.html.erb (7.2ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 121ms (Views: 120.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 10.32.32.111 at 2017-05-10 14:59:16 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.6ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered shared/_header.html.erb (2.7ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 69ms (Views: 68.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 10.32.32.111 at 2017-05-10 15:01:32 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered shared/_header.html.erb (3.1ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 77ms (Views: 76.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 10.32.32.111 at 2017-05-10 15:02:55 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered shared/_header.html.erb (3.6ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 113ms (Views: 112.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/items" for 10.32.32.111 at 2017-05-10 15:02:57 -0400
+Processing by ItemsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mItem Load (0.4ms)[0m  SELECT  "items".* FROM "items" LIMIT 25 OFFSET 0
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT  "items".* FROM "items"  ORDER BY "items"."id" ASC LIMIT 1 OFFSET 0[0m
+  Rendered items/index.html.erb within layouts/application (5.5ms)
+  Rendered shared/_header.html.erb (0.9ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 71ms (Views: 68.5ms | ActiveRecord: 0.8ms)
+
+
+Started DELETE "/items/5" for 10.32.32.111 at 2017-05-10 15:03:24 -0400
+Processing by ItemsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"CvLEksq4wJFO7on1w9aHeZvE/09xr0wuwjb8IDotoXGDxOLai1kAz3LnCx8Hxf67sfbLzlVY7C2EjQJ8DkgXfw==", "id"=>"5"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.4ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "items" WHERE "items"."id" = ?[0m  [["id", 5]]
+  [1m[35m (18.1ms)[0m  commit transaction
+Redirected to http://10.32.32.121/items
+Completed 302 Found in 28ms (ActiveRecord: 19.3ms)
+
+
+Started GET "/items" for 10.32.32.111 at 2017-05-10 15:03:24 -0400
+Processing by ItemsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mItem Load (0.3ms)[0m  SELECT  "items".* FROM "items" LIMIT 25 OFFSET 0
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT  "items".* FROM "items"  ORDER BY "items"."id" ASC LIMIT 1 OFFSET 0[0m
+  Rendered items/index.html.erb within layouts/application (6.5ms)
+  Rendered shared/_header.html.erb (1.1ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 116ms (Views: 112.7ms | ActiveRecord: 0.7ms)

@@ -9,8 +9,8 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/">GIMS
-        <img style="margin-left: 50px; margin-top: -35px;" src="/images/rims-icon.png" height="50" width="50">
+      <a class="navbar-brand" href="/">TIMS
+        <img style="margin-left: 50px; margin-top: -35px;" src="/images/timbs.png" height="50" width="50">
       </a>
     </div>
 
@@ -26,12 +26,14 @@
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-	 <li style= "padding-top: 3%">
-                <%= form_tag(items_results_path, :method => "get", id: "search-form") do %>
-	                <%= text_field_tag :search, params[:search], placeholder: "Search Inventory" %>
-                	<%= submit_tag "Search" %>
-		<% end %>
-        </li>
+	<% if user_signed_in? %>
+		 <li style= "padding-top: 3%">
+                	<%= form_tag(items_results_path, :method => "get", id: "search-form") do %>
+	                	<%= text_field_tag :search, params[:search], placeholder: "Search Inventory" %>
+	                	<%= submit_tag "Search" %>
+			<% end %>
+		 </li>
+	<%end%>
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="items">Account <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
