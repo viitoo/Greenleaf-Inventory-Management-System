@@ -34,8 +34,25 @@ If you want to run unit tests you can do so by running the following command:
 ***You might receive an error when trying to upload an image to RIMS. If so make sure you have installed imagemagick.***
 
 ### ToDo
-Fix Searching functionality
 
-Add Importing CSV option
+*Add Importing CSV option
 
-Improve documentation
+*Allow for way to mass add similair models
+
+*Improve documentation & formatting of all files
+
+*Add owner tag for inventory items(?)
+
+### Finished TODO
+
+*Fix Searching functionality
+
+*Block Duplicate SN & Device Names
+
+*Remove Price & Picture options
+
+*Default Quantity to 1 but still editable
+
+*Add button for new inventory to All Inventory page
+
+*Add department and property dropdowns for new inventory
