@@ -4,11 +4,21 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
+	@properties = Property.all
+	@departments = Department.where("property_id = ?", Property.first.id)
 	if params[:search]
 		redirect_to items_results_path
 	else
 		@search = Item.none
 	end
+  end
+
+  def update_departments
+	  @departments = Department.where("property_id = ?",params[:property_id])
+	  respond_to do |format|
+	  	format.html #update_departments.html.erb
+		format.js
+	  end
   end
 
   def results
@@ -30,7 +40,8 @@ class ItemsController < ApplicationController
   # GET /items/new.json
   def new
     @item = Item.new
-
+    @properties = Property.all
+    @departments= Department.all
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @item }

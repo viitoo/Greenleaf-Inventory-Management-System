@@ -1,0 +1,19 @@
+I"(function() {
+  $(document).on('change', '#properties_select', function(evt) {
+    return $.ajax('update_departments', {
+      type: 'GET',
+      dataType: 'script',
+      data: {
+        property_id: $("#properties_select option:selected").val()
+      },
+      error: function(jqXHR, textStatus, errorThrown) {
+        return console.log("AJAX Error: " + textStatus);
+      },
+      success: function(data, textStatus, jqXHR) {
+        return console.log("Dynamic country select OK!");
+      }
+    });
+  });
+
+}).call(this);
+:ET

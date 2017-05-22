@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140412010617) do
+ActiveRecord::Schema.define(version: 20170516154424) do
+
+  create_table "departments", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "property_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "departments", ["property_id"], name: "index_departments_on_property_id"
 
   create_table "items", force: :cascade do |t|
     t.text     "device_name"
@@ -26,6 +35,12 @@ ActiveRecord::Schema.define(version: 20140412010617) do
     t.string   "owner"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "properties", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
