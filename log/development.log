@@ -15780,3 +15780,28 @@ Processing by ItemsController#index as HTML
   Rendered shared/_header.html.erb (1.0ms)
   Rendered shared/_footer.html.erb (0.1ms)
 Completed 200 OK in 114ms (Views: 108.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 10.32.32.101 at 2017-05-23 18:00:42 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.2ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered shared/_header.html.erb (3.4ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 1266ms (Views: 1265.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/items/new" for 10.32.32.101 at 2017-05-23 18:00:46 -0400
+Processing by ItemsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mProperty Load (0.4ms)[0m  SELECT "properties".* FROM "properties"
+  [1m[36mProperty Load (0.3ms)[0m  [1mSELECT "properties".* FROM "properties"  ORDER BY "properties"."name" ASC[0m
+  [1m[35mDepartment Load (0.2ms)[0m  SELECT "departments".* FROM "departments" WHERE "departments"."property_id" = ?  [["property_id", 1]]
+  [1m[36mDepartment Load (0.2ms)[0m  [1mSELECT "departments".* FROM "departments" WHERE "departments"."property_id" = ?[0m  [["property_id", 2]]
+  [1m[35mDepartment Load (0.1ms)[0m  SELECT "departments".* FROM "departments" WHERE "departments"."property_id" = ?  [["property_id", 3]]
+  [1m[36mDepartment Load (0.2ms)[0m  [1mSELECT "departments".* FROM "departments" WHERE "departments"."property_id" = ?[0m  [["property_id", 4]]
+  Rendered items/_form.html.erb (28.5ms)
+  Rendered items/new.html.erb within layouts/application (30.2ms)
+  Rendered shared/_header.html.erb (1.4ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 160ms (Views: 155.2ms | ActiveRecord: 1.7ms)
