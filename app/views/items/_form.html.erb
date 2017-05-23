@@ -1,4 +1,3 @@
-
 <div class="form-horizontal">
 <%= form_for(@item) do |f| %>
   <% if @item.errors.any? %>
@@ -51,14 +50,14 @@
   <div class="form-group">
     <%= f.label :property, class: "col-sm-3 control-label" %>
     <div class="col-sm-5">
-       <%= f.select :property, options_for_select(@properties.collect { |property| [property.name.titleize, property.id] }, 1), {}, { id: 'properties_select' } %>
+	    <%= f.select :property, options_for_select(@properties.collect { |property| [property.name.titleize, property.name.titleize] }, 1), {}, { id: 'properties_select' } %>
     </div>
   </div>
 
    <div class="form-group">
     <%= f.label :department, class: "col-sm-3 control-label" %>
     <div class="col-sm-5">
-	    <%= f.grouped_collection_select :department, Property.order(:name), @properties, :name, :id, :name, include_blank: true %>
+	    <%= f.grouped_collection_select :department,  Property.order(:name), :departments, :name, :name, :name, include_blank: true, :required => true %>
     </div>
   </div>
 
@@ -72,7 +71,7 @@
 
   <div class="form-group">
     <div class="col-sm-offset-3 col-sm-5">
-      <%= f.submit "Create Item", class: "btn btn-success" %>
+	    <%= f.submit "Create Item", class: "btn btn-success", :disabled => :property =='Choose A Property' %>
       <%= link_to 'Cancel', items_path, :class => "btn btn-danger" %>
     </div>
   </div>

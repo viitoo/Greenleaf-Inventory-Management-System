@@ -51,6 +51,8 @@ class ItemsController < ApplicationController
   # GET /items/1/edit
   def edit
     @item = Item.find(params[:id])
+    @properties = Property.all
+    @departments= Department.all
   end
 
   # POST /items
@@ -60,7 +62,7 @@ class ItemsController < ApplicationController
 	  if Item.exists?(:serial_number=> @item.serial_number) #match on Serial Number
 		  respond_to do |format|
 			  #Right now these just create notices at the top of the inventory page, would like to make it so it reloads form with other data filled in and failed box highlited. Added to TODO
-			  format.html { redirect_to @item, notice: 'Item could not be created as Serial Number already exists'}
+			   format.html { redirect_to @item, notice: 'Item could not be created as Serial Number already exists'}
 	  	  end
 	  elsif Item.exists?(:device_name=> @item.device_name) #match on Device Name
 		  respond_to do |format|

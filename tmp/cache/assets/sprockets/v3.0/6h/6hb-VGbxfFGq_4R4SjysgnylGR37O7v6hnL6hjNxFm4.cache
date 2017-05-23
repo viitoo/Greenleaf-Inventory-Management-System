@@ -1,0 +1,21 @@
+I"f(function() {
+  jQuery(function() {
+    var departments;
+    $('#item_department').parent().hide();
+    departments = $('#item_department').html();
+    return $('#item_property').change(function() {
+      var options, property;
+      alert('Success!');
+      property = $('#item_property+id :selected').text();
+      options = $(departments).filter("optgroup[label='" + property + "']").html();
+      if (options) {
+        return $('#item_department').html(options);
+      } else {
+        $('#item_department').empty();
+        return $('#item_department').parent().hide();
+      }
+    });
+  });
+
+}).call(this);
+:ET
