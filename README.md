@@ -31,7 +31,6 @@ If you want to run unit tests you can do so by running the following command:
 
 `bundle exec rspec spec/`
 
-***You might receive an error when trying to upload an image to RIMS. If so make sure you have installed imagemagick.***
 
 ### ToDo
 
@@ -41,9 +40,15 @@ If you want to run unit tests you can do so by running the following command:
 
 * Improve documentation & formatting of all files
 
-* Add owner tag for inventory items(?)
+* Create an error page
+
+* Prevent creation of item if no property/department chosen
+
+* Make so it goes back to creation page of item if no property selected, or if SN or device name used.
 
 ### Finished TODO
+
+* Add dynamic property and department tag
 
 * Fix Searching functionality
 
