@@ -1,5 +1,5 @@
 <div class="form-horizontal">
-<%= form_for(@item) do |f| %>
+<%= form_for @item, :html=> {:id => 'item_form'} do |f| %>
   <% if @item.errors.any? %>
     <div id="error_explanation">
       <h3><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h3>
@@ -71,7 +71,7 @@
 
   <div class="form-group">
     <div class="col-sm-offset-3 col-sm-5">
-	    <%= f.submit "Create Item", class: "btn btn-success", :disabled => :property =='Choose A Property' %>
+	    <%= f.submit "Create Item", class: "btn btn-success" %>
       <%= link_to 'Cancel', items_path, :class => "btn btn-danger" %>
     </div>
   </div>

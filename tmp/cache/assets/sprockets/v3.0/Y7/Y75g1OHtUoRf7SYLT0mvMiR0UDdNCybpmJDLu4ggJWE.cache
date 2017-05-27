@@ -1,0 +1,32 @@
+I"Ç(function() {
+  jQuery(function() {
+    var departments;
+    $("#f").submit(function() {
+      var valDDL;
+      alert("HERE");
+      valDDL = $("#item_property").val();
+      if (valDDL === "Choose a Property") {
+        event.preventDefault();
+        return alert("Select Property option");
+      } else {
+        return alert("IDK HOW THIS SHIT WORKS");
+      }
+    });
+    $('#item_department').parent().hide();
+    departments = $('#item_department').html();
+    return $('#properties_select').parent().change(function() {
+      var options, property;
+      property = $('#properties_select :selected').text();
+      options = $(departments).filter("optgroup[label='" + property + "']").html();
+      if (options) {
+        $('#item_department').html(options);
+        return $('#item_department').parent().show();
+      } else {
+        $('#item_department').empty();
+        return $('#item_department').parent().hide();
+      }
+    });
+  });
+
+}).call(this);
+:ET

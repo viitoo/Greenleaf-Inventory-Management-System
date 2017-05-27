@@ -2,6 +2,11 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 jQuery ->
+	$("#item_form").submit ->
+		subproperty = $('#properties_select :selected').text()
+		if(subproperty=="Choose A Property")
+			event.preventDefault();
+			alert("Select a property option")
 	$('#item_department').parent().hide()
 	departments = $('#item_department').html()
 	$('#properties_select').parent().change ->
