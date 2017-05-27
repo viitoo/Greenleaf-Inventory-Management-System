@@ -59,14 +59,21 @@ class ItemsController < ApplicationController
   # POST /items.json
   def create
 	  @item = Item.new(params[:item])
+	  @properties = Property.all
+	  @departments= Department.all
 	  if Item.exists?(:serial_number=> @item.serial_number) #match on Serial Number
 		  respond_to do |format|
 			  #Right now these just create notices at the top of the inventory page, would like to make it so it reloads form with other data filled in and failed box highlited. Added to TODO
-			   format.html { redirect_to @item, notice: 'Item could not be created as Serial Number already exists'}
-	  	  end
+			  #format.html { redirect_to @item, alert: 'Items could not be created as Serial Number already exists'}
+			  flash.now[:alert] = 'Items could not be created as Serial Number already exists!'
+			  format.html { render :action => 'new'}
+
+		  end
 	  elsif Item.exists?(:device_name=> @item.device_name) #match on Device Name
 		  respond_to do |format|
-                          format.html { redirect_to @item, notice: 'Item could not be created as Device Name already exists'}
+                          #format.html { redirect_to @item, notice: 'Item could not be created as Device Name already exists'}
+			   flash.now[:alert] = 'Item could not be created as Device Name already exists!'
+                          format.html { render :action => 'new'}
                   end
 	  else #If a match on SN or name is not found
 	  	  respond_to do |format|

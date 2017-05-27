@@ -42,11 +42,11 @@ If you want to run unit tests you can do so by running the following command:
 
 * Create an error page
 
+### Finished TODO
+
 * Prevent creation of item if no property/department chosen
 
 * Make so it goes back to creation page of item if no property selected, or if SN or device name used.
-
-### Finished TODO
 
 * Add dynamic property and department tag
 
