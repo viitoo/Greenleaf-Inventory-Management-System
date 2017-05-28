@@ -118,4 +118,7 @@ class ItemsController < ApplicationController
 	  Item.import(params[:file])
 	  redirect_to items_path, notice: "Items from CSV added successfully"
   end
+  
+  def csv
+  end
 end

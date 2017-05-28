@@ -7,7 +7,7 @@
 
   <div class="panel-body">
 	  <%= link_to 'New Item', new_item_path, :class => "btn btn-success"%>
-	  <%= link_to 'Import CSV', new_item_path, :class => "btn btn-info", :disabled => true%>
+	  <%= link_to 'Import CSV', items_csv_path, :class => "btn btn-info"%>
 	  </br></br>
     <div class="row">
       <table class="table sortable">
@@ -36,7 +36,7 @@
 
         <tfoot>
           <tr>
-            <td><b>Total Items in Inventory</b></td>
+            <td><b>Total Items Shown</b></td>
             <td></td>
             <td><center><%= @items.map{|item| item.quantity}.reduce(0, :+,) %></center></td>
             <td></td>
@@ -57,11 +57,5 @@
         <%= will_paginate @items, renderer: BootstrapPagination::Rails %>
       </div>
     </center>
-
   </div>
-  <h3>Import Items with CSV</h3>
-  	<%= form_tag import_items_path, multipart: true do%>
-		<%= file_field_tag :file%>
-		<%= submit_tag "Upload Items" %>
-	<%end%>
 </div>

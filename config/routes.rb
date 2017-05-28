@@ -1,6 +1,7 @@
 Rims::Application.routes.draw do
   get "welcome/index"
   get "/items/results" => "items#results"
+  get "/items/csv" => "items#csv"
   get "/items/update_departments", as: "update_departments"
   devise_for :users
 

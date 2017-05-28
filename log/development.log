@@ -19605,3 +19605,230 @@ Processing by ItemsController#index as HTML
   Rendered shared/_header.html.erb (0.5ms)
   Rendered shared/_footer.html.erb (0.0ms)
 Completed 200 OK in 69ms (Views: 58.3ms | ActiveRecord: 0.7ms)
+DEPRECATION WARNING: config.active_record.whitelist_attributes is deprecated and have no effect. Remove its call from the configuration. (called from block in tsort_each at /usr/share/ruby/tsort.rb:228)
+DEPRECATION WARNING: You didn't set `secret_key_base`. Read the upgrade documentation to learn more about this new config option. (called from service at /usr/share/ruby/webrick/httpserver.rb:140)
+
+
+Started GET "/" for 192.168.14.182 at 2017-05-28 15:06:48 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (1.5ms)
+  Rendered shared/_header.html.erb (3.0ms)
+  Rendered shared/_footer.html.erb (0.2ms)
+Completed 200 OK in 406ms (Views: 405.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/items" for 192.168.14.182 at 2017-05-28 15:08:35 -0400
+Processing by ItemsController#index as HTML
+Completed 401 Unauthorized in 8ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 192.168.14.182 at 2017-05-28 15:08:35 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/sessions/new.html.erb within layouts/application (13.3ms)
+  Rendered shared/_header.html.erb (0.9ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 95ms (Views: 72.3ms | ActiveRecord: 3.7ms)
+
+
+Started POST "/users/sign_in" for 192.168.14.182 at 2017-05-28 15:08:44 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IKSqolBelDjKc5fCDf4SHvQnqe2Ei5e5t9Y9avtx7yymIV57fY9E/ISWzzX2Hj1a2IYRnSK+nSX4iHk3z2zoXw==", "user"=>{"email"=>"admin1@example.com", "password"=>"[FILTERED]"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "admin1@example.com"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["last_sign_in_at", "2017-05-27 21:37:57.801993"], ["current_sign_in_at", "2017-05-28 19:08:44.779768"], ["sign_in_count", 8], ["updated_at", "2017-05-28 19:08:44.781007"], ["id", 1]]
+  [1m[35m (6.0ms)[0m  commit transaction
+Redirected to http://192.168.14.109/items
+Completed 302 Found in 113ms (ActiveRecord: 7.4ms)
+
+
+Started GET "/items" for 192.168.14.182 at 2017-05-28 15:08:44 -0400
+Processing by ItemsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mProperty Load (0.4ms)[0m  SELECT  "properties".* FROM "properties"  ORDER BY "properties"."id" ASC LIMIT 1
+  [1m[36mItem Load (1.3ms)[0m  [1mSELECT  "items".* FROM "items" LIMIT 25 OFFSET 0[0m
+  [1m[35m (0.9ms)[0m  SELECT COUNT(*) FROM "items"
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT  "items".* FROM "items"  ORDER BY "items"."id" ASC LIMIT 1 OFFSET 0[0m
+  Rendered items/index.html.erb within layouts/application (21.2ms)
+  Rendered shared/_header.html.erb (0.6ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 81ms (Views: 61.2ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/items" for 192.168.14.182 at 2017-05-28 15:12:08 -0400
+Processing by ItemsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mProperty Load (0.1ms)[0m  [1mSELECT  "properties".* FROM "properties"  ORDER BY "properties"."id" ASC LIMIT 1[0m
+  [1m[35mItem Load (0.2ms)[0m  SELECT  "items".* FROM "items" LIMIT 25 OFFSET 0
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "items"[0m
+  [1m[35mItem Load (0.2ms)[0m  SELECT  "items".* FROM "items"  ORDER BY "items"."id" ASC LIMIT 1 OFFSET 0
+  Rendered items/index.html.erb within layouts/application (12.0ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 57ms (Views: 53.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/items" for 192.168.14.182 at 2017-05-28 15:13:05 -0400
+Processing by ItemsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mProperty Load (0.1ms)[0m  SELECT  "properties".* FROM "properties"  ORDER BY "properties"."id" ASC LIMIT 1
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT  "items".* FROM "items" LIMIT 25 OFFSET 0[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "items"
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT  "items".* FROM "items"  ORDER BY "items"."id" ASC LIMIT 1 OFFSET 0[0m
+  Rendered items/index.html.erb within layouts/application (11.5ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 55ms (Views: 51.5ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/items/import" for 192.168.14.182 at 2017-05-28 15:13:12 -0400
+Processing by ItemsController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8+bIzqxIgHCKDWbM5UF8MGgeESACugqslurfzQZU43bmr2S0UaytXjJOGQqbweq6KP5qlDB6t6adIb4UebgKOw==", "commit"=>"Upload Items"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.1ms)
+
+NoMethodError (undefined method `path' for nil:NilClass):
+  app/models/item.rb:8:in `import'
+  app/controllers/items_controller.rb:118:in `import'
+
+
+  Rendered /usr/local/share/gems/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.3ms)
+  Rendered /usr/local/share/gems/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /usr/local/share/gems/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /usr/local/share/gems/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (18.0ms)
+
+
+Started GET "/items/results?utf8=%E2%9C%93&search=&commit=Search" for 192.168.14.182 at 2017-05-28 15:17:20 -0400
+Processing by ItemsController#results as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"", "commit"=>"Search"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered items/results.html.erb within layouts/application (0.9ms)
+  Rendered shared/_header.html.erb (0.5ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 41ms (Views: 39.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/items/results?utf8=%E2%9C%93&search=&commit=Search" for 192.168.14.182 at 2017-05-28 15:17:25 -0400
+Processing by ItemsController#results as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"", "commit"=>"Search"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered items/results.html.erb within layouts/application (0.1ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 40ms (Views: 37.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/items" for 192.168.14.182 at 2017-05-28 15:17:27 -0400
+Processing by ItemsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mProperty Load (0.1ms)[0m  SELECT  "properties".* FROM "properties"  ORDER BY "properties"."id" ASC LIMIT 1
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT  "items".* FROM "items" LIMIT 25 OFFSET 0[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "items"
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT  "items".* FROM "items"  ORDER BY "items"."id" ASC LIMIT 1 OFFSET 0[0m
+  Rendered items/index.html.erb within layouts/application (10.9ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 52ms (Views: 49.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/items" for 192.168.14.182 at 2017-05-28 15:22:29 -0400
+Processing by ItemsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mProperty Load (0.1ms)[0m  [1mSELECT  "properties".* FROM "properties"  ORDER BY "properties"."id" ASC LIMIT 1[0m
+  [1m[35mProperty Load (0.2ms)[0m  SELECT "properties".* FROM "properties"
+  [1m[36mDepartment Load (0.7ms)[0m  [1mSELECT "departments".* FROM "departments" WHERE (property_id = 1)[0m
+  [1m[35mItem Load (0.2ms)[0m  SELECT  "items".* FROM "items" LIMIT 25 OFFSET 0
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "items"[0m
+  Rendered items/index.html.erb within layouts/application (54.9ms)
+Completed 500 Internal Server Error in 91ms (ActiveRecord: 2.5ms)
+
+ActionView::Template::Error (undefined local variable or method `items_csv_path' for #<#<Class:0x007f0adc81d3f8>:0x007f0adc800ca8>
+Did you mean?  items_path):
+     7: 
+     8:   <div class="panel-body">
+     9: 	  <%= link_to 'New Item', new_item_path, :class => "btn btn-success"%>
+    10: 	  <%= link_to 'Import CSV', items_csv_path, :class => "btn btn-info"%>
+    11: 	  </br></br>
+    12:     <div class="row">
+    13:       <table class="table sortable">
+  app/views/items/index.html.erb:10:in `_app_views_items_index_html_erb__1628597690710200056_69842312854620'
+
+
+  Rendered /usr/local/share/gems/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.9ms)
+  Rendered /usr/local/share/gems/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /usr/local/share/gems/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /usr/local/share/gems/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (19.7ms)
+DEPRECATION WARNING: config.active_record.whitelist_attributes is deprecated and have no effect. Remove its call from the configuration. (called from block in tsort_each at /usr/share/ruby/tsort.rb:228)
+DEPRECATION WARNING: You didn't set `secret_key_base`. Read the upgrade documentation to learn more about this new config option. (called from service at /usr/share/ruby/webrick/httpserver.rb:140)
+
+
+Started GET "/items" for 192.168.14.182 at 2017-05-28 15:25:52 -0400
+Processing by ItemsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mProperty Load (0.4ms)[0m  SELECT  "properties".* FROM "properties"  ORDER BY "properties"."id" ASC LIMIT 1
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT  "items".* FROM "items" LIMIT 25 OFFSET 0[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "items"
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT  "items".* FROM "items"  ORDER BY "items"."id" ASC LIMIT 1 OFFSET 0[0m
+  Rendered items/index.html.erb within layouts/application (318.2ms)
+  Rendered shared/_header.html.erb (1.3ms)
+  Rendered shared/_footer.html.erb (0.2ms)
+Completed 200 OK in 591ms (Views: 544.4ms | ActiveRecord: 8.2ms)
+
+
+Started GET "/items/csv" for 192.168.14.182 at 2017-05-28 15:25:55 -0400
+Processing by ItemsController#csv as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered items/csv.html.erb within layouts/application (0.8ms)
+  Rendered shared/_header.html.erb (0.9ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 69ms (Views: 67.1ms | ActiveRecord: 0.1ms)
+DEPRECATION WARNING: config.active_record.whitelist_attributes is deprecated and have no effect. Remove its call from the configuration. (called from block in tsort_each at /usr/share/ruby/tsort.rb:228)
+DEPRECATION WARNING: You didn't set `secret_key_base`. Read the upgrade documentation to learn more about this new config option. (called from service at /usr/share/ruby/webrick/httpserver.rb:140)
+
+
+Started GET "/items/csv" for 192.168.14.182 at 2017-05-28 15:29:38 -0400
+Processing by ItemsController#csv as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered items/csv.html.erb within layouts/application (1.8ms)
+  Rendered shared/_header.html.erb (4.5ms)
+  Rendered shared/_footer.html.erb (0.2ms)
+Completed 200 OK in 333ms (Views: 301.9ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/items/csv" for 192.168.14.182 at 2017-05-28 15:30:22 -0400
+Processing by ItemsController#csv as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered items/csv.html.erb within layouts/application (1.3ms)
+  Rendered shared/_header.html.erb (0.7ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 61ms (Views: 58.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/items/csv" for 192.168.14.182 at 2017-05-28 15:31:16 -0400
+Processing by ItemsController#csv as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered items/csv.html.erb within layouts/application (0.9ms)
+  Rendered shared/_header.html.erb (0.6ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 56ms (Views: 53.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/items" for 192.168.14.182 at 2017-05-28 15:34:09 -0400
+Processing by ItemsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mProperty Load (0.1ms)[0m  [1mSELECT  "properties".* FROM "properties"  ORDER BY "properties"."id" ASC LIMIT 1[0m
+  [1m[35mItem Load (0.2ms)[0m  SELECT  "items".* FROM "items" LIMIT 25 OFFSET 0
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "items"[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT  "items".* FROM "items"  ORDER BY "items"."id" ASC LIMIT 1 OFFSET 0
+  Rendered items/index.html.erb within layouts/application (268.8ms)
+  Rendered shared/_header.html.erb (0.5ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 321ms (Views: 308.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/items/csv" for 192.168.14.182 at 2017-05-28 15:34:19 -0400
+Processing by ItemsController#csv as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered items/csv.html.erb within layouts/application (0.7ms)
+  Rendered shared/_header.html.erb (0.7ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 41ms (Views: 39.7ms | ActiveRecord: 0.1ms)
