@@ -18060,3 +18060,55 @@ Processing by ItemsController#index as HTML
   Rendered shared/_header.html.erb (0.5ms)
   Rendered shared/_footer.html.erb (0.0ms)
 Completed 200 OK in 66ms (Views: 59.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 192.168.14.182 at 2017-05-27 18:08:12 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered shared/_header.html.erb (2.3ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 1055ms (Views: 1054.0ms | ActiveRecord: 0.1ms)
+DEPRECATION WARNING: config.active_record.whitelist_attributes is deprecated and have no effect. Remove its call from the configuration. (called from block in tsort_each at /usr/share/ruby/tsort.rb:228)
+DEPRECATION WARNING: config.active_record.whitelist_attributes is deprecated and have no effect. Remove its call from the configuration. (called from block in tsort_each at /usr/share/ruby/tsort.rb:228)
+DEPRECATION WARNING: config.active_record.whitelist_attributes is deprecated and have no effect. Remove its call from the configuration. (called from block in tsort_each at /usr/share/ruby/tsort.rb:228)
+DEPRECATION WARNING: config.active_record.whitelist_attributes is deprecated and have no effect. Remove its call from the configuration. (called from block in tsort_each at /usr/share/ruby/tsort.rb:228)
+DEPRECATION WARNING: config.active_record.whitelist_attributes is deprecated and have no effect. Remove its call from the configuration. (called from block in tsort_each at /usr/share/ruby/tsort.rb:228)
+DEPRECATION WARNING: You didn't set `secret_key_base`. Read the upgrade documentation to learn more about this new config option. (called from service at /usr/share/ruby/webrick/httpserver.rb:140)
+
+
+Started GET "/" for 192.168.14.182 at 2017-05-27 21:44:02 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (1.4ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered shared/_header.html.erb (35.6ms)
+  Rendered shared/_footer.html.erb (0.3ms)
+Completed 200 OK in 532ms (Views: 528.9ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/items/new" for 192.168.14.182 at 2017-05-27 21:44:07 -0400
+Processing by ItemsController#new as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mProperty Load (0.6ms)[0m  [1mSELECT "properties".* FROM "properties"[0m
+  [1m[35mProperty Load (0.2ms)[0m  SELECT "properties".* FROM "properties"  ORDER BY "properties"."name" ASC
+  [1m[36mDepartment Load (0.6ms)[0m  [1mSELECT "departments".* FROM "departments" WHERE "departments"."property_id" = ?[0m  [["property_id", 1]]
+  [1m[35mDepartment Load (0.5ms)[0m  SELECT "departments".* FROM "departments" WHERE "departments"."property_id" = ?  [["property_id", 2]]
+  [1m[36mDepartment Load (0.1ms)[0m  [1mSELECT "departments".* FROM "departments" WHERE "departments"."property_id" = ?[0m  [["property_id", 3]]
+  [1m[35mDepartment Load (0.1ms)[0m  SELECT "departments".* FROM "departments" WHERE "departments"."property_id" = ?  [["property_id", 4]]
+  Rendered items/_form.html.erb (346.7ms)
+  Rendered items/new.html.erb within layouts/application (348.6ms)
+  Rendered shared/_header.html.erb (0.5ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 430ms (Views: 394.7ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/items" for 192.168.14.182 at 2017-05-27 21:44:09 -0400
+Processing by ItemsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mProperty Load (0.1ms)[0m  SELECT  "properties".* FROM "properties"  ORDER BY "properties"."id" ASC LIMIT 1
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT  "items".* FROM "items" LIMIT 25 OFFSET 0[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT  "items".* FROM "items"  ORDER BY "items"."id" ASC LIMIT 1 OFFSET 0
+  Rendered items/index.html.erb within layouts/application (4.8ms)
+  Rendered shared/_header.html.erb (0.6ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 56ms (Views: 51.3ms | ActiveRecord: 0.4ms)

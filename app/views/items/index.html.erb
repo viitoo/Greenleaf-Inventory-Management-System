@@ -59,4 +59,9 @@
     </center>
 
   </div>
+  <h3>Import Items with CSV</h3>
+  	<%= form_tag import_items_path, multipart: true do%>
+		<%= file_field_tag :file%>
+		<%= submit_tag "Upload Items" %>
+	<%end%>
 </div>
