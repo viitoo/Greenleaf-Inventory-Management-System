@@ -6,7 +6,7 @@ class Item < ActiveRecord::Base
 
 	def self.import(file)
 		CSV.foreach(file.path, headers: true) do |row|
-			Items.create! row.to_hash
+			Item.create! row.to_hash
 		end
 	end
 	self.per_page = 25
