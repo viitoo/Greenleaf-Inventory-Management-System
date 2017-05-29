@@ -2,6 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 jQuery ->
+	$('#item_warrenty_date').datepicker({dateFormat: 'yy-mm-dd'})
 	$("#item_form").submit ->
 		subproperty = $('#properties_select :selected').text()
 		if(subproperty=="Choose A Property")

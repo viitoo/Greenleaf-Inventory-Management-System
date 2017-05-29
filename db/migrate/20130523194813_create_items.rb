@@ -10,7 +10,7 @@ class CreateItems < ActiveRecord::Migration
       t.text :category
       t.string :property
       t.string :department
-      t.string :owner
+      t.date :warrenty_date
 
       t.timestamps
     end

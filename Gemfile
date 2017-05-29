@@ -19,6 +19,7 @@ gem 'will_paginate-bootstrap'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
+  gem 'jquery-ui-rails'
   gem 'coffee-rails'
   gem 'sass-rails'
   gem 'uglifier'

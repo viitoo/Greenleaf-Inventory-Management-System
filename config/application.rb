@@ -12,7 +12,7 @@ end
 
 module Rims
   class Application < Rails::Application
-
+	config.exceptions_app = self.routes
     config.generators do |g|
       g.test_framework :rspec,
         :fixtures => true,

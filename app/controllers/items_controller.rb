@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
+	@items = Item.all.order("device_name DESC")
 	@properties = Property.all
 	@departments = Department.where("property_id = ?", Property.first.id)
 	if params[:search]
@@ -22,7 +23,7 @@ class ItemsController < ApplicationController
   end
 
   def results
-	  @search = Item.search(params[:search]).order("created_at DESC")
+	  @search = Item.search(params[:search]).order("device_name DESC")
   end
 
   # GET /items/1

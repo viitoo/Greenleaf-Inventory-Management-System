@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20170516154424) do
     t.text     "category"
     t.string   "property"
     t.string   "department"
-    t.string   "owner"
+    t.date     "warrenty_date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
