@@ -34,15 +34,19 @@ If you want to run unit tests you can do so by running the following command:
 
 ### ToDo
 
-* Add Importing CSV option
-
 * Allow for way to mass add similair models
 
 * Improve documentation & formatting of all files
 
-* Create an error page
+* Link to AD
+
+* Create Reports and alerting on warrenty date
 
 ### Finished TODO
+
+* Add Importing CSV option
+
+* Create an error page
 
 * Prevent creation of item if no property/department chosen
 
