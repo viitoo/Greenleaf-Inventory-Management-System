@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -13,53 +12,55 @@
 
 ActiveRecord::Schema.define(version: 20170516154424) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "departments", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "property_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string "name"
+    t.bigint "property_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["property_id"], name: "index_departments_on_property_id"
   end
 
-  add_index "departments", ["property_id"], name: "index_departments_on_property_id"
-
   create_table "items", force: :cascade do |t|
-    t.text     "device_name"
-    t.string   "serial_number"
-    t.text     "description"
-    t.text     "product_model_number"
-    t.integer  "quantity"
-    t.string   "picture"
-    t.text     "category"
-    t.string   "property"
-    t.string   "department"
-    t.date     "warrenty_date"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.text "device_name"
+    t.string "serial_number"
+    t.text "description"
+    t.text "product_model_number"
+    t.integer "quantity"
+    t.string "picture"
+    t.text "category"
+    t.string "property"
+    t.string "department"
+    t.date "warrenty_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "properties", force: :cascade do |t|
-    t.string   "name"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                              null: false
-    t.string   "encrypted_password",                 null: false
-    t.string   "reset_password_token"
+    t.string "email", null: false
+    t.string "encrypted_password", null: false
+    t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0
+    t.integer "sign_in_count", default: 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "role"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "role"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-
+  add_foreign_key "departments", "properties"
 end
