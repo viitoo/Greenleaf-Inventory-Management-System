@@ -20,11 +20,6 @@ RSpec.describe User, type: :model do
   it { should respond_to(:last_sign_in_ip) }
   it { should respond_to(:role) }
 
-  describe 'validation of username' do
-    subject { User.new }
-    it { should validate_presence_of(:username) }
-  end
-
   describe 'validation of email' do
     subject { FactoryGirl.build(:user, email: nil) }
     it { should validate_presence_of(:email) }
