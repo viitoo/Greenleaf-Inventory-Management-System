@@ -1,25 +1,27 @@
 # spec/models/user.rb
 require 'spec_helper'
 
-describe User do
-	it "has a valid factory" do
-		FactoryGirl.create(:user).should be_valid
-	end
-	it "is invalid without a email" do
-		FactoryGirl.build(:user, email: nil).should_not be_valid
-	end
-	it "is invalid without a password"  do
-		FactoryGirl.build(:user, password: nil).should_not be_valid
-	end
+RSpec.describe User, type: :model do
+  it "has a valid factory" do
+    FactoryGirl.create(:user).should be_valid
+  end
+
+  it "is invalid without a email" do
+    FactoryGirl.build(:user, email: nil).should_not be_valid
+  end
+
+  it "is invalid without a password"  do
+    FactoryGirl.build(:user, password: nil).should_not be_valid
+  end
 
 # nkotb
 before(:each) do
-    @attr = {
-      :email => "user@example.com",
-      :password => "changeme",
-      :password_confirmation => "changeme"
-    }
-  end
+  @attr = {
+    :email => "user@example.com",
+    :password => "changeme",
+    :password_confirmation => "changeme"
+  }
+end
 
   it "should create a new instance given a valid attribute" do
     User.create!(@attr)
@@ -60,7 +62,6 @@ before(:each) do
   end
 
   describe "passwords" do
-
     before(:each) do
       @user = User.new(@attr)
     end
@@ -75,7 +76,6 @@ before(:each) do
   end
 
   describe "password validations" do
-
     it "should require a password" do
       User.new(@attr.merge(:password => "", :password_confirmation => "")).
         should_not be_valid
@@ -91,11 +91,9 @@ before(:each) do
       hash = @attr.merge(:password => short, :password_confirmation => short)
       User.new(hash).should_not be_valid
     end
-
   end
 
   describe "password encryption" do
-
     before(:each) do
       @user = User.create!(@attr)
     end
@@ -107,7 +105,6 @@ before(:each) do
     it "should set the encrypted password attribute" do
       @user.encrypted_password.should_not be_blank
     end
-
   end
 
 end
