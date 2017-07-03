@@ -39,7 +39,12 @@
           <tr>
             <td><b>Total Items Shown</b></td>
             <td></td>
-            <td><center><%= @items.map{|item| item.quantity}.reduce(0, :+,) %></center></td>
+            <td>
+              <center>
+                <!-- TODO: Extract this into a view helper-->
+                <%= @items.map{|item| item.quantity}.reduce(0, :+,) %>
+              </center>
+            </td>
             <td></td>
             <td></td>
             <td></td>

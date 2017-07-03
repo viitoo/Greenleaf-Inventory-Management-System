@@ -9,6 +9,9 @@ Bundler.require(*Rails.groups)
 
 module Rims
   class Application < Rails::Application
+    # Initialize configuration defaults for originally generated Rails version.
+    config.load_defaults 5.1
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -17,9 +20,11 @@ module Rims
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
     # config.time_zone = 'Central Time (US & Canada)'
 
-    # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
-    # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
-    # config.i18n.default_locale = :de
+    # Don't generate system test files.
+    # config.generators.system_tests = nil
+    # Filter sensitive parameters out of logs
+    config.filter_parameters << :password
+    config.filter_parameters << :password_confirmation
 
     config.exceptions_app = self.routes
     config.generators do |g|
@@ -33,16 +38,19 @@ module Rims
       g.fixture_replacement :factory_girl, dir: "spec/factories"
     end
 
+    config.action_controller.action_on_unpermitted_parameters = :raise
     config.i18n.enforce_available_locales = false
 
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
 
-    # Configure sensitive parameters which will be filtered from the log file.
-    config.filter_parameters += [:password]
-
     # Enable escaping HTML in JSON.
     config.active_support.escape_html_entities_in_json = true
+    # Don't encode ampersands into \u0026 when creating JSON
+
+    # config.active_support.escape_html_entities_in_json = false
+    config.i18n.enforce_available_locales = true
+    config.active_record.default_timezone = :utc
 
     # Use SQL instead of Active Record's schema dumper when creating the database.
     # This is necessary if your schema can't be completely dumped by the schema dumper,
@@ -52,20 +60,20 @@ module Rims
     # Enable the asset pipeline
     config.assets.enabled = true
 
-    # Version of your assets, change this if you want to expire all your assets
-    config.assets.version = '1.0'
+    # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
+    # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
+    # config.i18n.default_locale = :de
+    config.autoload_paths << Rails.root.join('lib')
+
+    # Needs to be false on Heroku
+    config.public_file_server.enabled = false
+    config.public_file_server.headers = { 'Cache-Control' => 'public, max-age=31536000' }
+
+    # Add the fonts path
+    config.assets.paths << Rails.root.join('app', 'assets', 'fonts', 'vendor')
+
+    # Precompile additional assets
+    config.assets.precompile += %w( *.svg *.eot *.woff *.ttf *.png *.jpg *.jpeg *.gif)
+
   end
-end
-
-
-require File.expand_path('../boot', __FILE__)
-
-require 'rails/all'
-require 'csv'
-
-if defined?(Bundler)
-  # If you precompile assets before deploying to production, use this line
-  Bundler.require(*Rails.groups(:assets => %w(development test)))
-  # If you want your assets lazily compiled in production, use this line
-  # Bundler.require(:default, :assets, Rails.env)
 end
