@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :authenticate_user!
+  before_action :authenticate_user!
   after_action :verify_authorized, except: [:show]
 
   def index
@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     unless current_user.admin?
       unless @user == current_user
-        redirect_to root_path, :alert => "Access denied."
+        redirect_to root_path, alert: "Access denied."
       end
     end
   end
@@ -20,9 +20,9 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     authorize @user
     if @user.update_attributes(secure_params)
-      redirect_to users_path, :notice => "User updated."
+      redirect_to users_path, notice: "User updated."
     else
-      redirect_to users_path, :alert => "Unable to update user."
+      redirect_to users_path, alert: "Unable to update user."
     end
   end
 
@@ -31,9 +31,9 @@ class UsersController < ApplicationController
     authorize user
     unless user == current_user
       user.destroy
-      redirect_to users_path, :notice => "User deleted."
+      redirect_to users_path, notice: "User deleted."
     else
-      redirect_to users_path, :notice => "Can't delete yourself."
+      redirect_to users_path, notice: "Can't delete yourself."
     end
   end
 

@@ -1,13 +1,10 @@
-
 <div class="panel panel-primary">
   <div class="panel-heading">
     <h3 class="panel-title"><%= @item.device_name %></h3>
   </div>
 
   <div class="panel-body">
-
     <div class="container">
-
       <div class="row">
         <div class="col-md-2"><b>Description</b></div>
         <div class="col-md-8"><%= simple_format(@item.description) %></div>
@@ -24,25 +21,23 @@
       </div>
 
       <div class="row">
-          <div class="col-md-2"><b>Property</b></div>
-          <div class="col-md-4"><%= @item.property %></div>
+        <div class="col-md-2"><b>Property</b></div>
+        <div class="col-md-4"><%= @item.property %></div>
       </div>
 
       <div class="row">
-	      <div class="col-md-2"><b>Department</b></div>
-      	      <div class="col-md-4"><%= @item.department %></div>
+        <div class="col-md-2"><b>Department</b></div>
+        <div class="col-md-4"><%= @item.department %></div>
       </div>
 
-        <div class="row">
-          <div class="col-md-2"></div>
-          <div class="col-md-4">
-            <%= link_to 'Edit', edit_item_path(@item), :class => "btn btn-primary" %>
-            <%= link_to 'Delete', @item, confirm: 'Are you sure?', method: :delete, :class => "btn btn-warning" %>
-            <%= link_to 'Cancel', items_path, :class => "btn btn-danger" %>
-          </div>
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-4">
+          <%= link_to 'Edit', edit_item_path(@item), :class => "btn btn-primary" %>
+          <%= link_to 'Delete', @item, confirm: 'Are you sure?', method: :delete, :class => "btn btn-warning" %>
+          <%= link_to 'Cancel', items_path, :class => "btn btn-danger" %>
         </div>
-
+      </div>
     </div>
-
-
+  </div>
 </div>

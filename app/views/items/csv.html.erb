@@ -1,14 +1,14 @@
 <div class="panel panel-primary">
-	<div class="panel-heading">
-		<h3 class="panel-title">Import Items with CSV</h3>
-	</div>
-	<div class ="panel-body">
-		<%= link_to "Example CSV", "/export.csv", download: 'example' %>
-		</br>
-		<%= form_tag import_items_path, multipart: true do%>
-			<%= file_field_tag :file %>
-			</br>
-			<%= submit_tag "Upload Items" , :class => "btn btn-success"%>
-		<%end%>
-	</div>
+  <div class="panel-heading">
+    <h3 class="panel-title">Import Items with CSV</h3>
+  </div>
+  <div class ="panel-body">
+    <%= link_to "Example CSV", "/export.csv", download: 'example' %>
+    </br>
+    <%= form_tag import_items_path, multipart: true do%>
+      <%= file_field_tag :file %>
+      </br>
+      <%= submit_tag "Upload Items" , class: "btn btn-success"%>
+    <%end%>
+  </div>
 </div>
