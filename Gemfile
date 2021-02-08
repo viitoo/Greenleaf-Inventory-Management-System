@@ -8,7 +8,7 @@ end
 # Core gems
 gem 'rails',         '~> 5.1.1'
 gem 'pg',            '~> 0.19.0'
-gem 'carrierwave',   '~> 1.0'
+gem 'carrierwave',   '~> 1.3'
 gem 'will_paginate', '~> 3.0'
 gem 'will_paginate-bootstrap'
 
